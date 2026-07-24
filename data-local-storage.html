@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A web Multi Player html">
+    <meta name="title" content="Multi Player">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <link rel="stylesheet" href="https://masumbillah6778.github.io/fonts/bangla/bangla-custom-font.css">
+    <link rel="stylesheet" href="https://masumbillah6778.github.io/fonts/bangla/bangla-custom-font.css">
+    <link rel="stylesheet" href="https://masumbillah6778.github.io/css/custom-scrollbar.css">
+    <link rel="icon" type="image/x-icon" href="https://masumbillah6778.github.io/images/music-icon1.png">
+    <title> Data Local Storage </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://masumbillah6778.github.io/css/data-local-storage.css">
+    <link rel="stylesheet" href="https://masumbillah6778.github.io/master-multi-media/assets/css/main-page-media-screen-v1.css" />
+  </head>
+  <body>
+
+    <div class="data-local-storage">
+      <div class="data-local-storage-box">
+        <h1> বদলী র‌্যাব সদস্যদের নাম এন্ট্রি </h1>
+        <h4> জুলাই - ২০২৬ </h4>
+      </div>
+      <div class="form-row">
+
+        <div class="col-md-3 col-sm-6 col-6">
+          <label> ব্যক্তিগত নাম্বার <span class="errdiv"> * </span></label>
+          <input id="txtRegNo" type="text" class="form-control txt txtRegNo" minlength="10" maxlength="10"
+            placeholder="ব্যক্তিগত নাম্বার">
+        </div>
+
+        <div class="col-md-3">
+          <label> পদবী <span class="errdiv"> * </span></label>
+          <input id="txtRank" type="text" class="form-control txt txtRank" placeholder="পদবী" required>
+          <input id="txtId" type="hidden" class="form-control txt">
+        </div>
+
+        <div class="col-md-3">
+          <label> নাম <span class="errdiv"> * </span></label>
+          <input id="txtName" type="text" class="form-control txt txtName" placeholder="নাম" required>
+          <input id="txtId" type="hidden" class="form-control txt">
+        </div>
+
+        <div class="col-md-3">
+          <label> কর্মস্থল <span class="errdiv"> * </span></label>
+          <input id="txtWorkplace" type="text" class="form-control txt txtWorkplace" placeholder="কর্মস্থল" required>
+          <input id="txtId" type="hidden" class="form-control txt">
+        </div>
+
+        <div class="col-md-3">
+          <label> বদলীস্থল <span class="errdiv"> * </span></label>
+          <input id="txtTransfer" type="text" class="form-control txt txtTransfer" placeholder="বদলীস্থল" required>
+          <input id="txtId" type="hidden" class="form-control txt">
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-6">
+          <label> মোবাইল <span class="errdiv"> * </span></label>
+          <input id="txtContact" type="text" class="form-control txt txtContact" minlength="12" maxlength="12"
+            placeholder="মোবাইল">
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-6">
+          <label> তারিখ <span class="errdiv"> * </span></label>
+          <input id="txtDate" type="text" class="form-control txt txtDate" minlength="10" maxlength="10"
+            placeholder="তারিখ">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-6 col-sm-7">
+          <label> স্বারক নং <span class="errdiv"> * </span></label>
+          <textarea id="txtMemorandum" class="form-control txt txtMemorandum" rows="3" minlength="15"
+            placeholder="স্বারক নং" required></textarea>
+        </div>
+      </div>
+
+      <div class="row pt-2">
+        <div class="col-md-2">
+          <button type="button" class="btn btn-success" id="btnSave"> Save </button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-secondary" id="btnClear"> Clear </button>
+        </div>
+      </div>
+
+      <div class="row pt-3">
+        <div class="col-md-12 col-sm-12 col-12 p-2">
+          <h1> বদলী র‌্যাব সদস্যদের নামের তালিকা </h1>
+          <table id="tblData" class="table table-bordered table-hover table-striped">
+            <thead>
+              <tr>
+                <th> ক্রমিক </th>
+                <th> ব্যক্তিগত নাম্বার </th>
+                <th> পদবী </th>
+                <th> নাম </th>
+                <th> কর্মস্থল </th>
+                <th> বদলীস্থল </th>
+                <th> মোবাইল </th>
+                <th> তারিখ </th>
+                <th> স্বারক নং </th>
+                <th class="text-center"> মন্তব্য </th>
+              </tr>
+            </thead>
+            <tbody> 
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://masumbillah6778.github.io/js/data-local-storage.js"></script>
+</body>
+
+</html>
