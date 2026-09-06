@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A web Multi Player html">
+    <meta name="title" content="Multi Player">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <link rel="stylesheet" href="https://masumbillah6778.github.io/fonts/bangla/bangla-custom-font.css">
+    <link rel="stylesheet" href="https://masumbillah6778.github.io/fonts/bangla/bangla-custom-font.css">
+    <link rel="stylesheet" href="https://masumbillah6778.github.io/css/custom-scrollbar.css">
+    <link rel="icon" type="image/x-icon" href="https://rab-8.github.io/images/SRB-8.png">
+    <title> ORDMS </title>
+    <link rel="stylesheet" href="/pdm.css" />
+    <link rel="stylesheet" href="https://masumbillah6778.github.io/master-multi-media/assets/css/main-page-media-screen-v1.css" />
+  </head>
+  <body>
+
+    <div id="login" class="login">
+      <div class="blu"></div>
+      <div class="loginbox">
+        <div class="img"> <img src="https://rab-8.github.io/images/SRB-8.png"> </div>
+        <h2> অফিসিয়াল রেশন ডাটা ম্যানেজমেন্ট সিস্টেম </h2>
+        <p> নিরাপদে প্রবেশ করতে পাসওয়ার্ড দিন </p>
+        <input id="password" type="password" placeholder="🔐 এখানে পাসওয়ার্ড দিন">
+        <button class="primary" onclick="login()"> প্রবেশ করুন </button>
+        <p style="margin-top:12px"> র‌্যাব- <b> ৮ </b></p>
+      </div>
+    </div>
+
+    <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><img src="https://rab-8.github.io/images/SRB-8.png"> <h2> ORDMS </h2><small> র‌্যাব- ৮ </small></div>
+      <div class="nav">
+        <button class="active" data-section="dashboard">🏠 Dashboard</button>
+        <button data-section="entry">➕ তথ্য এন্ট্রি</button>
+        <button data-section="records">👥 সকল তথ্য</button>
+        <button data-section="backup">💾 Backup / Export</button>
+      </div>
+      <div class="sidebottom"><button onclick="logout()">🔒 Lock Screen</button></div>
+    </aside>
+    
+    <main class="main">
+    <div class="topbar"><div><h1 id="pageTitle">Dashboard</h1><span>ব্যক্তিগত তথ্য ব্যবস্থাপনা</span></div><div id="clock"></div></div>
+
+    <section id="dashboard" class="section active">
+      <div class="stats">
+        <div class="stat"><b id="sTotal">০</b><span>মোট ব্যক্তি</span></div>
+        <div class="stat"><b id="sWork">০</b><span>স্বতন্ত্র কর্মস্থল</span></div>
+        <div class="stat"><b id="sTransfer">০</b><span>স্বতন্ত্র বদলীস্থল</span></div>
+        <div class="stat"><b id="sShown">০</b><span>সর্বশেষ প্রদর্শিত</span></div>
+      </div>
+      <div class="card"><div class="title"><h2>⚡ দ্রুত কাজ</h2></div>
+        <div class="actions">
+          <button class="primary" onclick="go('entry')">➕ নতুন তথ্য যোগ</button>
+          <button class="blue" onclick="go('records')">👥 তথ্য তালিকা</button>
+          <button class="secondary" onclick="window.print()">🖨 A4 Print</button>
+          <button class="warn" onclick="backup()">⬇ Backup</button>
+        </div>
+      </div>
+      <div class="card"><div class="title"><h2>🕒 সর্বশেষ ৫টি রেকর্ড</h2></div><div id="recent"></div></div>
+    </section>
+
+    <section id="entry" class="section">
+    <div class="card">
+    <div class="title"><h2 id="formTitle">➕ নতুন ব্যক্তির তথ্য যোগ করুন</h2><button class="secondary" onclick="resetForm()">নতুন ফর্ম</button></div>
+    <form id="form"><div class="grid">
+    <div class="photo"><div id="placeholder" class="ph">📷 ছবি নেই</div><img id="preview" style="display:none" alt="ছবি"><input id="photo" type="file" accept="image/*"></div>
+    <div class="field"><label> ব্যক্তিগত নং </label><input id="personalNo" maxlength="10" inputmode="numeric" placeholder="ব্যক্তিগত নং" required></div>
+    <div class="field"><label> RAB নং </label><input id="rabNo" maxlength="6" inputmode="numeric" placeholder="RAB নং" required></div>
+    <div class="field"><label> রেশন নং </label><input id="rationNo" maxlength="6" inputmode="numeric" placeholder="রেশন নং" required></div>
+    <div class="field"><label> পদবী </label><input id="rank" placeholder="পদবী" required></div>
+    <div class="field"><label> নাম </label><input id="name" placeholder="নাম" required></div>
+    <div class="field"><label> কর্মস্থল </label><input id="workplace" placeholder="কর্মস্থল" required></div>
+    <div class="field"><label> বদলীস্থল </label><input id="transferPlace" placeholder="বদলীস্থল" required></div>
+    <div class="field"><label> তারিখ </label><input id="date" type="date" placeholder="তারিখ" required></div>
+    <div class="field"><label> স্মারক নং </label><input id="memoNo" placeholder="স্মারক নং" required></div>
+    <div class="field"><label> মোবাইল নং </label><input id="mobile" maxlength="11" inputmode="numeric" placeholder="মোবাইল নং" required></div>
+    </div><div class="actions"><button class="primary" id="save">💾 সংরক্ষণ</button><button type="button" class="secondary" onclick="resetForm()">↻ বাতিল</button></div></form>
+    </div></section>
+
+    <section id="records" class="section">
+    <div class="card">
+    <div class="title"><h2>👥 সকল ব্যক্তির তথ্য</h2><span id="count" style="color:#64748b"></span></div>
+    <div class="toolbar no-print"><input class="search" id="search" placeholder="🔎 নাম, নং, পদবী, কর্মস্থল, বদলীস্থল, মোবাইল দিয়ে খুঁজুন..."><button class="blue" onclick="window.print()">🖨 Print</button></div>
+    <div class="tablewrap"><table><thead><tr><th>ক্রমিক</th><th>ছবি</th><th>ব্যক্তিগত নং</th><th>RAB</th><th>রেশন</th><th>পদবী</th><th>নাম</th><th>কর্মস্থল</th><th>বদলীস্থল</th><th>তারিখ</th><th>স্মারক</th><th>মোবাইল</th><th class="no-print">কার্যক্রম</th></tr></thead><tbody id="tbody"></tbody></table></div>
+    </div></section>
+
+    <section id="backup" class="section">
+    <div class="card"><div class="title"><h2>💾 Backup / Export</h2></div>
+    <p style="color:#64748b">ডাটা নিরাপদ রাখতে নিয়মিত Backup রাখুন। Backup ফাইল অন্য ডিভাইসেও Restore করা যাবে।</p>
+    <div class="actions no-print"><button class="blue" onclick="backup()">⬇ JSON Backup</button><button class="warn" onclick="$('restore').click()">⬆ JSON Restore</button><input id="restore" type="file" accept=".json" hidden><button class="secondary" onclick="exportCSV()">📄 CSV Export</button><button class="secondary" onclick="exportXLSX()">📊 Excel Export</button><button class="secondary" onclick="window.print()">🖨 A4 Print</button><button class="danger" onclick="clearAll()">🗑 সব ডাটা মুছুন</button></div>
+    </div>
+    <div class="card"><div class="title"><h2>🔑 পাসওয়ার্ড</h2></div><div class="grid" style="grid-template-columns:1fr 1fr"><div class="field"><label>নতুন পাসওয়ার্ড</label><input id="newPass" type="password"></div><div class="field"><label>নিশ্চিত করুন</label><input id="newPass2" type="password"></div></div><div class="actions"><button class="primary" onclick="changePassword()">🔐 পাসওয়ার্ড পরিবর্তন</button></div></div>
+    </section>
+    </main>
+    </div>
+
+    <div class="modal" id="modal"><div class="modalbox"><div class="title"><h2>👤 বিস্তারিত Profile</h2><button class="secondary" onclick="closeModal()">✕</button></div><div id="profile"></div></div></div>
+    <div class="toast" id="toast"></div>
+
+    <script src="https://rab-8.github.io/js/data-local-storage-v10.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+  </body>
+</html>
